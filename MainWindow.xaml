@@ -6,7 +6,71 @@
         xmlns:local="clr-namespace:Pogoda"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Synoptic Diafnose" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Text="Weather" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="2" Text="Personal Desk" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="9*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Button Width="30" Height="30" HorizontalAlignment="Left" Margin="5"/>
+                <TextBlock Grid.Column="1" Text="Weather info for current period" VerticalAlignment="Center"/>
+                <Button Grid.Row="1" Margin="5" Content="Details"/>
+                <Button Grid.Row="1" Grid.Column="1" Margin="5" Content="Table"/>
+                <Grid Grid.Row="2" Grid.ColumnSpan="2" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Monday" Margin="5,0"/>
+                    <Button Grid.Column="1" Content="Tuersday" Margin="5,0"/>
+                    <Button Grid.Column="2" Content="Wednesday" Margin="5,0"/>
+                    <Button Grid.Column="3" Content="Thursday" Margin="5,0"/>
+                    <Button Grid.Column="4" Content="Friday" Margin="5,0"/>
+                    <Button Grid.Column="5" Content="Saturday" Margin="5,0"/>
+                    <Button Grid.Column="6" Content="Sunday" Margin="5,0"/>
+                </Grid>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Margin="5,15" Content="Home"/>
+                <Button Grid.Row="1" Margin="5,15" Content="Location"/>
+                <Button Grid.Row="2" Margin="5,15" Content="Settings"/>
+                <Button Grid.Row="3" Margin="5,15" Content="Clouse"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
