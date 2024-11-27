@@ -38,26 +38,56 @@
                 </Grid.RowDefinitions>
                 <Button Width="30" Height="30" HorizontalAlignment="Left" Margin="5"/>
                 <TextBlock Grid.Column="1" Text="Weather info for current period" VerticalAlignment="Center"/>
-                <Button Grid.Row="1" Margin="5" Content="Details"/>
-                <Button Grid.Row="1" Grid.Column="1" Margin="5" Content="Table"/>
-                <Grid Grid.Row="2" Grid.ColumnSpan="2" Margin="5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Button Content="Monday" Margin="5,0"/>
-                    <Button Grid.Column="1" Content="Tuersday" Margin="5,0"/>
-                    <Button Grid.Column="2" Content="Wednesday" Margin="5,0"/>
-                    <Button Grid.Column="3" Content="Thursday" Margin="5,0"/>
-                    <Button Grid.Column="4" Content="Friday" Margin="5,0"/>
-                    <Button Grid.Column="5" Content="Saturday" Margin="5,0"/>
-                    <Button Grid.Column="6" Content="Sunday" Margin="5,0"/>
-                </Grid>
+                <StackPanel  Name="Detals_StackPanel" Grid.Row="1" Margin="5">
+                    <Label Content="{Binding Path=Date}"/>
+                    <Label Content="{Binding Path=WeekDay}"/>
+                    <Label Content="{Binding Path=MaxTemperature}"/>
+                    <Label Content="{Binding Path=MinTemperature}"/>
+                    <Label Content="{Binding Path=Pressure}"/>
+                    <Label Content="{Binding Path=WindSpeed}"/>
+                    <Label Content="{Binding Path=WindDirection}"/>
+                    <Label Content="{Binding Path=Wheather}"/>
+                    <Label Content="{Binding Path=Location}"/>
+                </StackPanel>
+                <ListBox Name="WeatherHours_ListBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Path=Time}"/>
+                                <Label Content="{Binding Path=Temperature}"/>
+                                <Label Content="{Binding Path=ApparentTemperature}"/>
+                                <Label Content="{Binding Path=RelativeHumidity}"/>
+                                <Label Content="{Binding Path=SurfasePressure}"/>
+                                <Label Content="{Binding Path=WindSpeed}"/>
+                                <Label Content="{Binding Path=WindDirection}"/>
+                                <Label Content="{Binding Path=Weather}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ListBox Name="WeatherDays_ListBox" Grid.Row="2" Grid.ColumnSpan="2">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Button Margin="5,0" Click="WeatherDayButton_Click">
+                                <StackPanel>
+                                    <Label Content="{Binding Path=Date}"/>
+                                    <Label Content="{Binding Path=MaxTemperature}"/>
+                                    <Label Content="{Binding Path=MinTemperature}"/>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </Grid>
             <Grid>
                 <Grid.RowDefinitions>
