@@ -1,12 +1,10 @@
 ﻿using Pogoda.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace Pogoda.ViewModels
 {
-    public partial class HomeViewViewModel : INotifyPropertyChanged
+    public class HomeViewViewModel : ViewModelBase
     {
         private List<DayForecastModel> forecastDays;
         public List<DayForecastModel> ForecastDays
@@ -47,12 +45,6 @@ namespace Pogoda.ViewModels
                 }
             };
             forecastDays = new List<DayForecastModel>() { data,data,data, data };
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyCanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

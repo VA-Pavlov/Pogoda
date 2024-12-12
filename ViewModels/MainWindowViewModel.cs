@@ -6,43 +6,69 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Pogoda.ViewModels
 {
-    public partial class MainWindowViewModel : INotifyPropertyChanged
+    public partial class MainWindowViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public ICommand HomeCommand { get; }
+        public ICommand LocationCommand { get; }
+        public ICommand SettingsCommand { get; }
+        public ICommand ClouseCommand { get; }
 
-        private HomeViewViewModel _homeViewViewModel;
-        public HomeViewViewModel _HomeViewViewModel
+        private ViewModelBase selectedContent;
+        public ViewModelBase SelectedContent
         {
-            get { return _homeViewViewModel; }
+            get { return selectedContent; }
             set
             {
-                _homeViewViewModel = value;
+                selectedContent = value;
                 OnPropertyCanged();
             }
-        }
+        } 
         public MainWindowViewModel()
         {
             HomeCommand = new RelayCommand(OpenHomeView , CanOpenHomeView);
+            LocationCommand = new RelayCommand(OpenLocationView, CanOpenLocationView);
+            SettingsCommand = new RelayCommand(OpenSettingsView, CanOpenSettingsView);
+            ClouseCommand = new RelayCommand(OpenClouseView, CanOpenClouseView);
         }
-
         private void OpenHomeView(object obj)
         {
-            _HomeViewViewModel = new HomeViewViewModel();
+            SelectedContent = new HomeViewViewModel();
         }
         private bool CanOpenHomeView(object arg)
         {
             return true;
         }
-        public void OnPropertyCanged([CallerMemberName] string prop = "")
+
+        private void OpenLocationView(object obj)
         {
-            if(PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            SelectedContent = new LocationViewViewModel();
+        }
+        private bool CanOpenLocationView(object arg)
+        {
+            return true;
+        }
+        
+        private void OpenSettingsView(object obj)
+        {
+            SelectedContent = new SettingsViewViewModel();
+        }
+        private bool CanOpenSettingsView(object arg)
+        {
+            return true;
+        }
+
+        private void OpenClouseView(object obj)
+        {
+            Application.Current.MainWindow.Close();
+        }
+        private bool CanOpenClouseView(object arg)
+        {
+            return true;
         }
     }
 }

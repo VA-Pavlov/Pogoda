@@ -16,15 +16,5 @@ namespace Pogoda
         {
             InitializeComponent();
         }
-
-        private void WeatherDayButton_Click(object sender, RoutedEventArgs e)
-        {
-            if(sender is Button button)
-            {
-                var day = button.DataContext as DayForecastModel;
-                //Detals_StackPanel.DataContext = day;
-                //WeatherHours_ListBox.ItemsSource = day.HourlyForecasts;
-            }
-        }
     }
 }

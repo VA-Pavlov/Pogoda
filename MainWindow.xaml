@@ -4,9 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:homeView="clr-namespace:Pogoda.Views.Home"
+        xmlns:locationView="clr-namespace:Pogoda.Views.Location"
+        xmlns:settingsView="clr-namespace:Pogoda.Views.Settings"
         xmlns:vm="clr-namespace:Pogoda.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:HomeViewViewModel}">
+            <homeView:HomeView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:LocationViewViewModel}">
+            <locationView:LocationView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SettingsViewViewModel}">
+            <settingsView:SettingsView DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -31,7 +44,7 @@
                 <ColumnDefinition Width="9*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="2">
-                <homeView:HomeView DataContext="{Binding _HomeViewViewModel}"/>
+                <ContentControl Content="{Binding SelectedContent}"/>
             </Grid>
             <Grid>
                 <Grid.RowDefinitions>
@@ -41,9 +54,9 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Button Margin="5,15" Content="Home" Command="{Binding Path=HomeCommand}"/>
-                <Button Grid.Row="1" Margin="5,15" Content="Location"/>
-                <Button Grid.Row="2" Margin="5,15" Content="Settings"/>
-                <Button Grid.Row="3" Margin="5,15" Content="Clouse"/>
+                <Button Grid.Row="1" Margin="5,15" Content="Location"  Command="{Binding Path=LocationCommand}"/>
+                <Button Grid.Row="2" Margin="5,15" Content="Settings" Command="{Binding Path=SettingsCommand}"/>
+                <Button Grid.Row="3" Margin="5,15" Content="Clouse" Command="{Binding Path=ClouseCommand}"/>
             </Grid>
         </Grid>
     </Grid>
