@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Pogoda
+namespace Pogoda.Models
 {
     public class HourlyForecastModel
     {

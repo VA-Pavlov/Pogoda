@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Documents;
 
-namespace Pogoda
+namespace Pogoda.Models
 {
     public class DayForecastModel
     {

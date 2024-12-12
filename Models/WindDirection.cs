@@ -1,4 +1,4 @@
-﻿namespace Pogoda
+﻿namespace Pogoda.Models
 {
     public enum WindDirection
     {
