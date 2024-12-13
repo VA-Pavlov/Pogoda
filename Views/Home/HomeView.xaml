@@ -25,16 +25,17 @@
         <Grid Grid.Row="1" Margin="5">
             <local:DayForecastDetailesView DataContext="{Binding SelectedDay}"/>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
             <local:HourlyForecastDetailesView DataContext="{Binding SelectedDay}"/>
         </Grid>
         <ListBox ItemsSource="{Binding ForecastDays}" 
                  Name="WeatherDays_ListBox" 
                  Grid.Row="2" Grid.ColumnSpan="2"
-                 SelectedItem="{Binding SelectedDay}">
+                 SelectedItem="{Binding SelectedDay}" 
+                 Margin="5">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
+                    <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
