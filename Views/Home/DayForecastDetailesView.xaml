@@ -5,11 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pogoda.Views.Home"
              xmlns:model="clr-namespace:Pogoda.Models"
+             xmlns:converters="clr-namespace:Pogoda.Resurses.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
         <model:DayForecastModel/>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <converters:WeatherCodesToIconConverter x:Key="WeatherCodesToIconConverter"/>
+    </UserControl.Resources>
     <Border>
         <StackPanel Margin="20" Orientation="Horizontal">
             <StackPanel>
@@ -35,7 +39,7 @@
                 </StackPanel>
                 <Label Content="Fog" FontSize="15"/>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Resurses/icons/Overcast.png" Width="30"/>
+                    <Image Source="{Binding Wheather, Converter={StaticResource WeatherCodesToIconConverter}}" Width="30"/>
                     <Label Content="2,53" FontSize="30"/>
                     <Label Content="ms" FontSize="20" VerticalAlignment="Bottom"/>
                     <StackPanel>
@@ -50,12 +54,12 @@
                     <Label Content="mm" FontSize="20" VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Resurses/icons/Weather/speed.png" Width="40"/>
+                    <Image Source="{Binding Wheather, Converter={StaticResource WeatherCodesToIconConverter}}" Width="40"/>
                     <Label Content="{Binding WindSpeed}" FontSize="20" VerticalAlignment="Center"/>
                     <Label Content="mm hg" FontSize="20" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
-            <Image Source="/Resurses/icons/Overcast.png" Height="90" VerticalAlignment="Top" Margin="10,30"/>
+            <Image Source="{Binding Wheather, Converter={StaticResource WeatherCodesToIconConverter}}" Height="90" VerticalAlignment="Top" Margin="10,30"/>
         </StackPanel>
         <!--<StackPanel  Name="Detals_StackPanel" Grid.Row="1" Margin="5">
             <Label Content="{Binding Path=Date}"/>

@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\DateDictionary.cs" />
+    <Compile Include="Resurses\Converters\WeatherCodesToIconConverter.cs" />
     <Compile Include="ViewModels\HomeViewViewModel.cs" />
     <Compile Include="ViewModels\LocationViewViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -173,7 +174,7 @@
     <Resource Include="Resurses\icons\Home\arrow-rightpng.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resurses\icons\Overcast.png" />
+    <Resource Include="Resurses\icons\Weather\TypeOfWeather\Overcast.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resurses\icons\Weather\speed.png" />
@@ -186,6 +187,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resurses\icons\Location\add.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Weather\TypeOfWeather\ClearSky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Weather\TypeOfWeather\Windy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Weather\TypeOfWeather\Fog.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
