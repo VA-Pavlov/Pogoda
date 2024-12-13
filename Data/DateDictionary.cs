@@ -16,7 +16,8 @@ namespace Pogoda.Data
         {
             if (dateDictionary.Count == 0)
             {
-                    DateTime today = DateTime.Today;
+                Random random = new Random();
+                DateTime today = DateTime.Today;
                     for (int i = -3; i <= 3; i++)
                     {
                         DateTime date = today.AddDays(i);
@@ -24,10 +25,10 @@ namespace Pogoda.Data
                         {
                             Date = date.ToString(),
                             WeekDay = date.DayOfWeek.ToString(),
-                            MaxTemperature = (float)(20 + i),
-                            MinTemperature = (float)(15 + i),
+                            MaxTemperature = (float)random.Next(0, 30),
+                            MinTemperature = (float)random.Next(-30, 5),
                             Pressure = (float)(1010 + i),
-                            WindSpeed = (float)(5 + i),
+                            WindSpeed = (float)random.Next(0, 20),
                             WindDirection = WindDirection.East,
                             Wheather = WeatherCodes.Snowfall,
                             Location = "Москва",

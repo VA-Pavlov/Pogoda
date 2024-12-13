@@ -10,45 +10,95 @@
     <UserControl.DataContext>
         <vm:HomeViewViewModel/>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style x:Key="Title" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
     <Grid Grid.Column="1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Button Width="30" Height="30" HorizontalAlignment="Left" Margin="5"/>
-        <TextBlock Grid.Column="1" Text="Weather info for current period" VerticalAlignment="Center"/>
+        <Button Width="30" Height="30" HorizontalAlignment="Left" Margin="5">
+            <Image Source="/Resurses/icons/Home/refresh.png" />
+        </Button>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <TextBlock Text="Weather forecast " Style="{StaticResource Title}" />
+            <TextBlock Text="February 25"  Style="{StaticResource Title}"/>
+            <TextBlock Text=" - "  Style="{StaticResource Title}"/>
+            <TextBlock Text="March 4"  Style="{StaticResource Title}"/>
+        </StackPanel>
         <Grid Grid.Row="1">
             <local:DayForecastDetailesView DataContext="{Binding SelectedDay}"/>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1" Margin="5,0">
             <local:HourlyForecastDetailesView DataContext="{Binding SelectedDay}"/>
         </Grid>
-        <ListBox ItemsSource="{Binding ForecastDays}" 
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="50" Height="50" Background="Transparent">
+                <Image Source="/Resurses/icons/Home/Antu.png" />
+            </Button>
+            <ListBox ItemsSource="{Binding ForecastDays}" 
                  Name="WeatherDays_ListBox" 
-                 Grid.Row="2" Grid.ColumnSpan="2"
                  SelectedItem="{Binding SelectedDay}" 
-                 Margin="5">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Label Content="{Binding Path=Date}"/>
-                        <Label Content="{Binding Path=WeekDay}" />
-                        <Label Content="{Binding Path=MaxTemperature}"/>
-                        <Label Content="{Binding Path=MinTemperature}"/>
-                        <Label Content="{Binding Path=WeatherCodes}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                 Margin="5"
+                 MaxWidth="850"
+                 Background="Transparent"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="140" Padding="5" Height="130">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Label Content="February 25"/>
+                                        <Label Grid.Row="1" Content="Sun" FontSize="20"/>
+                                    </Grid>
+                                    <Image Source="/Resurses/icons/Overcast.png" Width="30"/>
+                                </StackPanel>
+                                <StackPanel Grid.Row="1">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="{Binding Path=MaxTemperature}" FontSize="30"/>
+                                        <Label Content="{Binding Path=MinTemperature}" FontSize="15" VerticalAlignment="Bottom" Foreground="Gray"/>
+                                    </StackPanel>
+                                    <Label Content="Overcast"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        <!--<StackPanel>
+                            <Label Content="{Binding Path=Date}"/>
+                            <Label Content="{Binding Path=WeekDay}" />
+                            <Label Content="{Binding Path=MaxTemperature}"/>
+                            <Label Content="{Binding Path=MinTemperature}"/>
+                            <Label Content="{Binding Path=WeatherCodes}"/>
+                        </StackPanel>-->
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Height="50" Background="Transparent">
+                <Image Source="/Resurses/icons/Home/arrow-rightpng.png" />
+
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>

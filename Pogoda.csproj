@@ -149,7 +149,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resurses\icons\location.png" />
+    <Resource Include="Resurses\icons\Home\location.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resurses\icons\Menu\Home.png" />
@@ -162,6 +162,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resurses\icons\Menu\clouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Home\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Home\Antu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Home\arrow-rightpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Overcast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Weather\speed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Weather\drop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

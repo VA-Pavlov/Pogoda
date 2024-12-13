@@ -11,23 +11,52 @@
         <model:DayForecastModel/>
     </UserControl.DataContext>
     <Border>
-        <Grid Margin="20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+        <StackPanel Margin="20" Orientation="Horizontal">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Thuesday" FontSize="20"/>
+                    <TextBlock Text="{Binding WeekDay}" FontSize="20"/>
                     <TextBlock Text=" - " FontSize="20"/>
                     <TextBlock Text="Februsry 27" FontSize="20"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5,10">
-                    <Image Source="/Resurses/icons/location.png" Width="15" Margin="0,0,10,0"/>
-                    <TextBlock Text="Москва" FontSize="20"/>
+                    <Image Source="/Resurses/icons/home/location.png" Width="20" Margin="0,0,10,0"/>
+                    <TextBlock Text="{Binding Location}" FontSize="25"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{Binding Path=MaxTemperature}" FontSize="45"/>
+                    <Label Content="o" FontSize="20" VerticalAlignment="Top" Padding="0"/>
+                    <StackPanel>
+                        <Label Content="Night" FontSize="15" VerticalAlignment="Top"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Path=MinTemperature}" FontSize="15" VerticalAlignment="Top"/>
+                            <Label Content="o" FontSize="10" VerticalAlignment="Top" Padding="0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <Label Content="Fog" FontSize="15"/>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resurses/icons/Overcast.png" Width="30"/>
+                    <Label Content="2,53" FontSize="30"/>
+                    <Label Content="ms" FontSize="20" VerticalAlignment="Bottom"/>
+                    <StackPanel>
+                        <Label Content="Gusts up to"/>
+                        <Label Content="6" FontSize="15" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <Label Content="E" FontSize="20" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resurses/icons/Weather/drop.png" Width="45"/>
+                    <Label Content="0" FontSize="20" VerticalAlignment="Center"/>
+                    <Label Content="mm" FontSize="20" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resurses/icons/Weather/speed.png" Width="40"/>
+                    <Label Content="{Binding WindSpeed}" FontSize="20" VerticalAlignment="Center"/>
+                    <Label Content="mm hg" FontSize="20" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
-        </Grid>
+            <Image Source="/Resurses/icons/Overcast.png" Height="90" VerticalAlignment="Top" Margin="10,30"/>
+        </StackPanel>
         <!--<StackPanel  Name="Detals_StackPanel" Grid.Row="1" Margin="5">
             <Label Content="{Binding Path=Date}"/>
             <Label Content="{Binding Path=WeekDay}"/>
@@ -39,6 +68,6 @@
             <Label Content="{Binding Path=Wheather}"/>
             <Label Content="{Binding Path=Location}"/>
         </StackPanel>-->
-        
+
     </Border>
 </UserControl>
