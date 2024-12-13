@@ -1,4 +1,5 @@
-﻿using Pogoda.Models;
+﻿using Pogoda.Data;
+using Pogoda.Models;
 using System;
 using System.Collections.Generic;
 
@@ -28,23 +29,7 @@ namespace Pogoda.ViewModels
         }
         public HomeViewViewModel()
         {
-            var data = new DayForecastModel()
-            {
-                Date = DateTime.Now.ToString(),
-                WeekDay = DateTime.Today.ToString(),
-                MaxTemperature = 15,
-                MinTemperature = 0,
-                Location = "Pitsburg",
-                Wheather = WeatherCodes.Windy,
-                Pressure = 3.4F,
-                WindDirection = WindDirection.East,
-                HourlyForecasts = new List<HourlyForecastModel>() {
-                    new HourlyForecastModel() { Time = DateTime.Now, RelativeHumidity = 1.5f},
-                    new HourlyForecastModel() { Time = DateTime.Now, RelativeHumidity = 1.6f}
-
-                }
-            };
-            forecastDays = new List<DayForecastModel>() { data,data,data, data };
+            forecastDays = DateDictionary.GetDats();
         }
     }
 }

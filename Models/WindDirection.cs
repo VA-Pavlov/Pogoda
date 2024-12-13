@@ -2,9 +2,9 @@
 {
     public enum WindDirection
     {
-        West,
-        East,
-        Nord,
-        Sud
+        West = 1,
+        East = 2,
+        Nord = 3,
+        Sud = 4
     }
 }

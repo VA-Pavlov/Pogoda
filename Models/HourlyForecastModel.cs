@@ -10,7 +10,7 @@ namespace Pogoda.Models
         public float RelativeHumidity { get; set; }
         public float SurfasePressure { get; set; }
         public float WindSpeed { get; set; }
-        public int WindDirection { get; set; }
+        public WindDirection WindDirection { get; set; } = WindDirection.West;
         public WeatherCodes Weather { get; set; }
     }
 }

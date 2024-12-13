@@ -11,7 +11,7 @@ namespace Pogoda.Models
         public float MinTemperature { get; set; }
         public float Pressure { get; set; }
         public float WindSpeed { get; set; }
-        public WindDirection WindDirection { get; set; }
+        public WindDirection WindDirection { get; set; } = WindDirection.West;
         public WeatherCodes Wheather { get; set; }
         public string Location { get; set; }
         public List<HourlyForecastModel> HourlyForecasts { get; set; }

@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\DateDictionary.cs" />
     <Compile Include="ViewModels\HomeViewViewModel.cs" />
     <Compile Include="ViewModels\LocationViewViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
