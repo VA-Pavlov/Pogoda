@@ -8,7 +8,7 @@
         xmlns:settingsView="clr-namespace:Pogoda.Views.Settings"
         xmlns:vm="clr-namespace:Pogoda.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1050">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:HomeViewViewModel}">
             <homeView:HomeView DataContext="{Binding}"/>
@@ -19,45 +19,69 @@
         <DataTemplate DataType="{x:Type vm:SettingsViewViewModel}">
             <settingsView:SettingsView DataContext="{Binding}"/>
         </DataTemplate>
+        <Style TargetType="Button">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Grid Background="{StaticResource WindowBackground}">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Synoptic Diafnose" VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="1" Text="Weather" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            <TextBlock Grid.Column="2" Text="Personal Desk" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <TextBlock Margin="10,0" Text="Beautiful Weather" Foreground="White" FontSize="25" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Text="Weather" Foreground="White" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="2" Text="online" Margin="10,0" Foreground="White" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="9*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="2">
                 <ContentControl Content="{Binding SelectedContent}"/>
             </Grid>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Button Margin="5,15" Content="Home" Command="{Binding Path=HomeCommand}"/>
-                <Button Grid.Row="1" Margin="5,15" Content="Location"  Command="{Binding Path=LocationCommand}"/>
-                <Button Grid.Row="2" Margin="5,15" Content="Settings" Command="{Binding Path=SettingsCommand}"/>
-                <Button Grid.Row="3" Margin="5,15" Content="Clouse" Command="{Binding Path=ClouseCommand}"/>
-            </Grid>
+            <Border Width="35" Height="300" Margin="10,0,20,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Button Margin="5,5,5,0" Command="{Binding Path=HomeCommand}" Background="WhiteSmoke">
+                        <Image Source="/Resurses/icons/Menu/Home.png" />
+                    </Button>
+                    <Button Grid.Row="1" Margin="5" Command="{Binding Path=LocationCommand}"  VerticalAlignment="Bottom">
+                        <Image Source="/Resurses/icons/Menu/location.png" />
+                    </Button>
+                    <Button Grid.Row="3" Margin="2" Command="{Binding Path=SettingsCommand}">
+                        <Image Source="/Resurses/icons/Menu/settings.png" />
+                    </Button>
+                    <Button Grid.Row="4" Margin="5" Command="{Binding Path=ClouseCommand}">
+                        <Image Source="/Resurses/icons/Menu/clouse.png"/>
+                    </Button>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </Window>

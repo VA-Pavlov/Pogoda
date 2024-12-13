@@ -148,6 +148,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resurses\icons\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Menu\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Menu\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Menu\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Menu\clouse.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

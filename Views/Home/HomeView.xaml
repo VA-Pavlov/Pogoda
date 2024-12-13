@@ -17,15 +17,15 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Button Width="30" Height="30" HorizontalAlignment="Left" Margin="5"/>
         <TextBlock Grid.Column="1" Text="Weather info for current period" VerticalAlignment="Center"/>
-        <Grid Grid.Row="1" Margin="5">
+        <Grid Grid.Row="1">
             <local:DayForecastDetailesView DataContext="{Binding SelectedDay}"/>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5,0">
             <local:HourlyForecastDetailesView DataContext="{Binding SelectedDay}"/>
         </Grid>
         <ListBox ItemsSource="{Binding ForecastDays}" 
@@ -42,8 +42,10 @@
                 <DataTemplate>
                     <StackPanel>
                         <Label Content="{Binding Path=Date}"/>
+                        <Label Content="{Binding Path=WeekDay}" />
                         <Label Content="{Binding Path=MaxTemperature}"/>
                         <Label Content="{Binding Path=MinTemperature}"/>
+                        <Label Content="{Binding Path=WeatherCodes}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
