@@ -181,5 +181,11 @@
   <ItemGroup>
     <Resource Include="Resurses\icons\Weather\drop.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Location\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurses\icons\Location\add.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

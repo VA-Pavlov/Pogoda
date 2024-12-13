@@ -6,21 +6,88 @@
              xmlns:local="clr-namespace:Pogoda.Views.Location"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="Margin" Value="0,5" />
+            <Setter Property="Background" Value="WhiteSmoke" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1">
-            <Label Content="Location" HorizontalAlignment="Center"/>
-            <TextBox Text="Владикавказ"/>
+        <StackPanel Grid.Column="1" Margin="20">
+            <TextBox Text="Владикавказ" FontSize="20" Padding="5"/>
             <Label Content="Selected location"/>
-            <TextBox Text="Владикавказ"/>
+            <Border Padding="5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resurses/icons/Home/location.png" Height="20" Margin="10,0"/>
+                    <TextBlock Text="Владикавказ"/>
+                </StackPanel>
+            </Border>
             <Label Content="Favorit location"/>
-            <TextBlock Text="Рязань - Россия"/>
-            <TextBlock Text="Ряменсокое - Московская область"/>
-            <TextBlock Text="Курск - Россия"/>
+            <Border Padding="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Рязань - Россия"/>
+                    <StackPanel Orientation="Horizontal"  Grid.Column="1">
+                        <Button>
+                            <Image Source="/Resurses/icons/Location/add.png" Height="20"/>
+                        </Button>
+                        <Button>
+                            <Image Source="/Resurses/icons/Location/delete.png" Height="30"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Padding="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Ряменсокое - Московская область"/>
+                    <StackPanel Orientation="Horizontal"  Grid.Column="1">
+                        <Button>
+                            <Image Source="/Resurses/icons/Location/add.png" Height="20"/>
+                        </Button>
+                        <Button>
+                            <Image Source="/Resurses/icons/Location/delete.png" Height="30"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border Padding="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Курск - Россия"/>
+                    <StackPanel Orientation="Horizontal"  Grid.Column="1">
+                        <Button>
+                            <Image Source="/Resurses/icons/Location/add.png" Height="20"/>
+                        </Button>
+                        <Button>
+                            <Image Source="/Resurses/icons/Location/delete.png" Height="30"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
         </StackPanel>
     </Grid>
 </UserControl>
