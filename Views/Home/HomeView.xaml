@@ -5,12 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pogoda.Views.Home"
              xmlns:vm="clr-namespace:Pogoda.ViewModels"
+             xmlns:converters="clr-namespace:Pogoda.Resurses.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
         <vm:HomeViewViewModel/>
     </UserControl.DataContext>
     <UserControl.Resources>
+        <converters:WeatherCodesToIconConverter x:Key="WeatherCodesToIconConverter"/>
         <Style x:Key="Title" TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="20"/>
@@ -74,7 +76,7 @@
                                         <Label Content="February 25"/>
                                         <Label Grid.Row="1" Content="Sun" FontSize="20"/>
                                     </Grid>
-                                    <Image Source="/Resurses/icons/Overcast.png" Width="30"/>
+                                    <Image Source="{Binding Wheather, Converter={StaticResource WeatherCodesToIconConverter}}" Width="30"/>
                                 </StackPanel>
                                 <StackPanel Grid.Row="1">
                                     <StackPanel Orientation="Horizontal">
@@ -85,13 +87,6 @@
                                 </StackPanel>
                             </Grid>
                         </Border>
-                        <!--<StackPanel>
-                            <Label Content="{Binding Path=Date}"/>
-                            <Label Content="{Binding Path=WeekDay}" />
-                            <Label Content="{Binding Path=MaxTemperature}"/>
-                            <Label Content="{Binding Path=MinTemperature}"/>
-                            <Label Content="{Binding Path=WeatherCodes}"/>
-                        </StackPanel>-->
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

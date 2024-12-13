@@ -57,7 +57,7 @@ namespace Pogoda.Data
                     SurfasePressure = (float)(1010 + (hour - 12) % 12),
                     WindSpeed = (float)random.Next(0,20),
                     WindDirection = hour > random.Next(1,11) ? WindDirection.West : WindDirection.Nord,
-                    Weather = hour > random.Next(1, 15) ? WeatherCodes.ClearSky : WeatherCodes.Fog
+                    Weather = hour > random.Next(1, 15) ? WeatherCodes.ClearSky : WeatherCodes.Overcast
                 });
             }
             return hourlyForecastList;
