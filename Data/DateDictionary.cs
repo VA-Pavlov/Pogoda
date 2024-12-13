@@ -23,7 +23,7 @@ namespace Pogoda.Data
                         DateTime date = today.AddDays(i);
                         DayForecastModel forecast = new DayForecastModel
                         {
-                            Date = date.ToString(),
+                            Date = date,
                             WeekDay = date.DayOfWeek.ToString(),
                             MaxTemperature = (float)random.Next(0, 30),
                             MinTemperature = (float)random.Next(-30, 5),

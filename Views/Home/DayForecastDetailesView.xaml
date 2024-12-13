@@ -20,7 +20,7 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="{Binding WeekDay}" FontSize="20"/>
                     <TextBlock Text=" - " FontSize="20"/>
-                    <TextBlock Text="Februsry 27" FontSize="20"/>
+                    <TextBlock Text="{Binding Date, StringFormat={}{0:MMMM dd}}" FontSize="20"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5,10">
                     <Image Source="/Resurses/icons/home/location.png" Width="20" Margin="0,0,10,0"/>

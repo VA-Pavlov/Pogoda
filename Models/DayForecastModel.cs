@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Documents;
 
 namespace Pogoda.Models
 {
     public class DayForecastModel
     {
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string WeekDay { get; set; }
         public float MaxTemperature { get; set; }
         public float MinTemperature { get; set; }

@@ -25,7 +25,7 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="/Resurses/icons/Weather/TypeOfWeather/ClearSky.png"  Height="5"/>
+                                <Image Source="/Resurses/icons/Weather/TypeOfWeather/ClearSky.png"  Height="20"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
