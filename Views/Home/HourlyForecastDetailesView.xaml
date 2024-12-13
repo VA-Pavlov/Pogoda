@@ -6,7 +6,37 @@
              xmlns:local="clr-namespace:Pogoda.Views.Home"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <ListBox Name="WeatherHours_ListBox"
+    <Border Padding="20">
+        <StackPanel>
+            <TextBlock FontSize="20" Text="Hourly Forecast"/>
+            <DataGrid ItemsSource="{Binding HourlyForecasts}"
+                      VerticalGridLinesBrush="Transparent"
+                      HorizontalGridLinesBrush="Transparent"
+                      CanUserResizeColumns="False"
+                      CanUserReorderColumns="False"
+                      AutoGenerateColumns="False"
+                      FontSize="15">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Time" Binding="{Binding Path=Time}"/>
+                    <DataGridHyperlinkColumn Binding="{Binding Path=Company}" />
+                    <DataGridTextColumn Header="C" Binding="{Binding Path=Temperature}"/>
+                    <DataGridTextColumn Header="Apparent" Binding="{Binding Path=ApparentTemperature}"/>
+                    <DataGridTextColumn Binding="{Binding Path=SurfasePressure}">
+                        <DataGridTextColumn.Header>
+                            <Image Source="/Resurses/icons/Weather/drop.png" Height="20"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Path=WindSpeed}">
+                        <DataGridTextColumn.Header>
+                            <Image Source="/Resurses/icons/Weather/speed.png" Height="20"/>
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Wind" Binding="{Binding Path=WindDirection}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Border>
+    <!--<ListBox Name="WeatherHours_ListBox"
              ItemsSource="{Binding HourlyForecasts}">
     <ListBox.ItemsPanel>
         <ItemsPanelTemplate>
@@ -15,7 +45,7 @@
     </ListBox.ItemsPanel>
     <ListBox.ItemTemplate>
         <DataTemplate>
-            <StackPanel Orientation="Horizontal">
+            --><!--<StackPanel Orientation="Horizontal">
                 <Label Content="{Binding Path=Time}"/>
                 <Label Content="{Binding Path=Temperature}"/>
                 <Label Content="{Binding Path=ApparentTemperature}"/>
@@ -24,8 +54,8 @@
                 <Label Content="{Binding Path=WindSpeed}"/>
                 <Label Content="{Binding Path=WindDirection}"/>
                 <Label Content="{Binding Path=Weather}"/>
-            </StackPanel>
+            </StackPanel>--><!--
         </DataTemplate>
     </ListBox.ItemTemplate>
-</ListBox>
+</ListBox>-->
 </UserControl>
