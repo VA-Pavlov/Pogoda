@@ -18,6 +18,7 @@ namespace Pogoda.ViewModels
         public ICommand SettingsCommand { get; }
         public ICommand ClouseCommand { get; }
 
+        private readonly HomeViewViewModel homeViewViewModel;
         private ViewModelBase selectedContent;
         public ViewModelBase SelectedContent
         {
@@ -28,16 +29,17 @@ namespace Pogoda.ViewModels
                 OnPropertyCanged();
             }
         } 
-        public MainWindowViewModel()
+        public MainWindowViewModel(HomeViewViewModel homeViewViewModel)
         {
             HomeCommand = new RelayCommand(OpenHomeView , CanOpenHomeView);
             LocationCommand = new RelayCommand(OpenLocationView, CanOpenLocationView);
             SettingsCommand = new RelayCommand(OpenSettingsView, CanOpenSettingsView);
             ClouseCommand = new RelayCommand(OpenClouseView, CanOpenClouseView);
+            this.homeViewViewModel = homeViewViewModel;
         }
         private void OpenHomeView(object obj)
         {
-            SelectedContent = new HomeViewViewModel();
+            SelectedContent = homeViewViewModel;
         }
         private bool CanOpenHomeView(object arg)
         {

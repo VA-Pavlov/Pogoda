@@ -8,40 +8,40 @@ using System.Threading.Tasks;
 
 namespace Pogoda.Data
 {
-    public static class DateDictionary
+    public class DateDictionary : IWeatherProvider
     {
-        private static List<DayForecastModel> dateDictionary = new List<DayForecastModel>();
+        private List<DayForecastModel> dateDictionary = new List<DayForecastModel>();
 
-        public static List<DayForecastModel> GetDats()
+        public List<DayForecastModel> GetDats()
         {
             if (dateDictionary.Count == 0)
             {
                 Random random = new Random();
                 DateTime today = DateTime.Today;
-                    for (int i = -3; i <= 3; i++)
+                for (int i = -3; i <= 3; i++)
+                {
+                    DateTime date = today.AddDays(i);
+                    DayForecastModel forecast = new DayForecastModel
                     {
-                        DateTime date = today.AddDays(i);
-                        DayForecastModel forecast = new DayForecastModel
-                        {
-                            Date = date,
-                            WeekDay = date.DayOfWeek.ToString(),
-                            MaxTemperature = (float)random.Next(0, 30),
-                            MinTemperature = (float)random.Next(-30, 5),
-                            Pressure = (float)(1010 + i),
-                            WindSpeed = (float)random.Next(0, 20),
-                            WindDirection = WindDirection.East,
-                            Wheather = i > random.Next(-3, 3) ? WeatherCodes.ClearSky : WeatherCodes.Overcast,
-                            Location = "Москва",
-                            HourlyForecasts = hourlyForecast()
-                        };
+                        Date = date,
+                        WeekDay = date.DayOfWeek.ToString(),
+                        MaxTemperature = (float)random.Next(0, 30),
+                        MinTemperature = (float)random.Next(-30, 5),
+                        Pressure = (float)(1010 + i),
+                        WindSpeed = (float)random.Next(0, 20),
+                        WindDirection = WindDirection.East,
+                        Wheather = i > random.Next(-3, 3) ? WeatherCodes.ClearSky : WeatherCodes.Overcast,
+                        Location = "Москва",
+                        HourlyForecasts = hourlyForecast()
+                    };
 
-                        dateDictionary.Add(forecast);
-                    }
+                    dateDictionary.Add(forecast);
                 }
-                return dateDictionary;
             }
+            return dateDictionary;
+        }
 
-        private static List<HourlyForecastModel> hourlyForecast()
+        private List<HourlyForecastModel> hourlyForecast()
         {
             List<HourlyForecastModel> hourlyForecastList = new List<HourlyForecastModel>();
             Random random = new Random();
@@ -55,12 +55,12 @@ namespace Pogoda.Data
                     ApparentTemperature = random.Next(-30, 30),
                     RelativeHumidity = (float)random.Next(-30, 30),
                     SurfasePressure = (float)(1010 + (hour - 12) % 12),
-                    WindSpeed = (float)random.Next(0,20),
-                    WindDirection = hour > random.Next(1,11) ? WindDirection.West : WindDirection.Nord,
+                    WindSpeed = (float)random.Next(0, 20),
+                    WindDirection = hour > random.Next(1, 11) ? WindDirection.West : WindDirection.Nord,
                     Weather = hour > random.Next(1, 15) ? WeatherCodes.ClearSky : WeatherCodes.Overcast
                 });
             }
             return hourlyForecastList;
         }
     }
-    }
+}

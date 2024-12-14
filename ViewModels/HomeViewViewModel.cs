@@ -27,9 +27,9 @@ namespace Pogoda.ViewModels
                 OnPropertyCanged();
             }
         }
-        public HomeViewViewModel()
+        public HomeViewViewModel(IWeatherProvider weatherProvider)
         {
-            forecastDays = DateDictionary.GetDats();
+            forecastDays = weatherProvider.GetDats();
         }
     }
 }
