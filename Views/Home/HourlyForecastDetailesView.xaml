@@ -56,9 +56,9 @@
                       CanUserResizeColumns="False"
                       CanUserReorderColumns="False"
                       AutoGenerateColumns="False"
-                      FontSize="15">
+                      FontSize="18">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Time" Binding="{Binding Path=Time}"/>
+                    <DataGridTextColumn Header="Time" Binding="{Binding Path=Time, StringFormat={}{0:HH:mm}}" />
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -78,7 +78,7 @@
                             <Image Source="/Resurses/icons/Weather/speed.png" Height="20"/>
                         </DataGridTextColumn.Header>
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Wind" Binding="{Binding Path=WindDirection}"/>
+                    <DataGridTextColumn Header="Wind" Binding="{Binding Path=WindDirection}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

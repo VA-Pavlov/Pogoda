@@ -308,9 +308,6 @@
     <Resource Include="Resurses\icons\Location\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resurses\icons\Weather\TypeOfWeather\ClearSky.png" />
   </ItemGroup>
   <ItemGroup>
