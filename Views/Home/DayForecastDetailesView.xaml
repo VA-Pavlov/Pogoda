@@ -14,7 +14,44 @@
     <UserControl.Resources>
         <converters:WeatherCodesToIconConverter x:Key="WeatherCodesToIconConverter"/>
     </UserControl.Resources>
-    <Border>
+    <Border RenderTransformOrigin="0.5 0.5">
+        <Border.RenderTransform>
+            <ScaleTransform ScaleX="0.98" ScaleY="0.98"/>
+        </Border.RenderTransform>
+        <Border.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter" >
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1" Duration="0:0:.4">
+                            <DoubleAnimation.EasingFunction>
+                                <QuarticEase />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1" Duration="0:0:.4" >
+                            <DoubleAnimation.EasingFunction>
+                                <QuarticEase />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave" >
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="0.98" Duration="0:0:.4">
+                            <DoubleAnimation.EasingFunction>
+                                <QuarticEase />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="0.98" Duration="0:0:.4" >
+                            <DoubleAnimation.EasingFunction>
+                                <QuarticEase />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Border.Triggers>
         <StackPanel Margin="20" Orientation="Horizontal">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
